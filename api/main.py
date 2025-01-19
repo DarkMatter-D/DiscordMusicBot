@@ -16,7 +16,7 @@ def download_video(video_name):
         #append it to the list
         url_list.append(video.watch_url)
     #return the file after extracting the info
-    return flask.send_file("./outputs/"+YoutubeDL({'extract_audio': True, 'format': 'bestaudio', 'outtmpl': 'api/outputs/%(title)s.mp3'}).extract_info(url_list[0],download=True).get('title',None)+".mp3", mimetype="audio/mpeg")
+    return flask.send_file("./outputs/"+YoutubeDL({'extract_audio': True, 'format': 'bestaudio', 'outtmpl': 'api/outputs/%(id)s.mp3'}).extract_info(url_list[0],download=True).get('title',None)+".mp3", mimetype="audio/mpeg")
 
 
 #app route for getting jsonified info for the video
